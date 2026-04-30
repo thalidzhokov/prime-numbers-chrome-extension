@@ -29,14 +29,14 @@ function getPrimeNumbers(from, to) {
 }
 
 function renderPrimeNumbers() {
-  const primeListElement = document.getElementById("prime-list");
+  const primeListElement = document.getElementById("prime-numbers-list");
   const primeNumbers = getPrimeNumbers(MIN_NUMBER, MAX_NUMBER);
 
   primeListElement.innerHTML = "";
 
   for (const primeNumber of primeNumbers) {
-    const listItem = document.createElement("li");
-    listItem.textContent = String(primeNumber);
+    const listItem = document.createElement("div");
+    listItem.innerHTML = `<span>${String(primeNumber)}</span>`;
     primeListElement.appendChild(listItem);
   }
 }

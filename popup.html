@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Простые числа</title>
+    <title>Prime numbers</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <main class="popup">
-      <h1 class="popup__title">Prime numbers</h1>
-      <h2 class="popup__subtitle">by <a href="https://github.com/thalidzhokov">Albert Thalidzhokov</a></h2>
-      <div class="popup__configs">
+
+    <header>
+      <h1 class="title">Prime numbers</h1>
+      <div class="configs">
         <div>
           <label for="min-number">от</label>
           <input id="min-number" value="1">
@@ -20,8 +20,21 @@
           <input id="max-number" value="1000">
         </div>
       </div>
-      <ul id="prime-list" class="popup__list"></ul>
-      </main>
-      <script src="popup.js"></script>
-  </body>
+    </header>
+
+    <main class="prime-numbers-list">
+      <div id="prime-numbers-list">
+        <!-- <div class="prime-numbers-list-item"></div> -->
+      </div>
+    </main>
+
+    <footer>
+      <div class="copyright">
+        <span>by <a href="https://github.com/thalidzhokov">Albert Thalidzhokov</a></span>
+      </div>
+    </footer>
+
+    <script src="popup.js"></script>
+    
+</body>
 </html>
