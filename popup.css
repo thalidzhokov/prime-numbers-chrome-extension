@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  padding: 10px;
+}
+
+.popup {
+  box-sizing: border-box;
+  min-width: 240px;
+  width: 100%;
+  max-width: 480px;
+  min-height: 200px;
+  height: 100%;
+  max-height: 400px;
+  padding: 0;
+  margin: 0;
+}
+
+.popup__title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.popup__subtitle {
+  margin: 0 0 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.popup__configs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup__configs div {
+  text-align: center;
+  flex: 1 0 50%;
+}
+
+#min-number, #max-number {
+  min-width: 10px;
+  width: 100%;
+  text-align: center;
+  border: 1px dotted;
+}
+
+.popup__list {
+  margin: 0;
+  padding-left: 0;
+  overflow-y: auto;
+}
+
+.popup__list li {
+  width: 25%;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
