@@ -42,3 +42,17 @@ function renderPrimeNumbers() {
 }
 
 renderPrimeNumbers();
+
+function syncPasswordLengthRangeVisual() {
+  const el = document.getElementById('password-length');
+  const min = Number(el.min);
+  const max = Number(el.max);
+  const v = Number(el.value);
+  const span = max - min;
+  const t = span === 0 ? 0 : (v - min) / span;
+  el.style.setProperty('--range-progress', String(t));
+}
+
+const passwordLengthInput = document.getElementById('password-length');
+passwordLengthInput.addEventListener('input', syncPasswordLengthRangeVisual);
+syncPasswordLengthRangeVisual();
