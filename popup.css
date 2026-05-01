@@ -34,7 +34,6 @@ nav .navigation {
   overflow: hidden;
   flex: 1 0 auto;
   text-align: center;
-  text-wrap: nowrap;
 }
 nav .navigation div {
   flex: 0 0 auto;
@@ -50,6 +49,7 @@ nav .navigation div a {
   border-radius: 17px;
   padding: 5px 11px;
   height: 34px;
+  transition: 0.5s ease-in-out;
 }
 nav .navigation div a.active {
   background-color: rgba(107, 47, 172, 1);
@@ -72,12 +72,15 @@ nav .navigation div a span.icon img {
 }
 nav .navigation div a span.text {
   flex: 1 0 auto;
-  padding-left: 5px;
-  display: none;
+  max-width: 0;
   line-height: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.25s ease-in-out, padding-left 0.25s ease-in-out, opacity 0.2s ease-in-out;
 }
 nav .navigation div a:hover span.text {
-  display: block;
+  max-width: 140px;
+  opacity: 1;
 }
 
 /* Header */
