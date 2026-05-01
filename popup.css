@@ -219,6 +219,14 @@ header .configs div label {
 #prime-numbers-words:checked::after {
   left: 38px;
 }
+#password-length {
+  width: 100%;
+  height: 32px;
+  border: 0 none;
+  background: transparent;
+  cursor: pointer;
+}
+
 
 /* Main */
 
