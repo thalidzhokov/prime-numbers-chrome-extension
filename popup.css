@@ -167,7 +167,6 @@ header .configs div label {
   height: 32px;
   position: relative;
   border: 0 none;
-  visibility: hidden;
 }
 #prime-numbers-uppercase::before, 
 #prime-numbers-lowercase::before, 
@@ -182,7 +181,6 @@ header .configs div label {
   height: 32px;
   border-radius: 16px;
   background-color: #FF373D;
-  visibility: visible;
   z-index: -2;
 }
 #prime-numbers-uppercase:checked::before, 
@@ -204,7 +202,6 @@ header .configs div label {
   height: 18px;
   border-radius: 9px;
   background-color: rgba(255, 255, 255, 1);
-  visibility: visible;
   z-index: -1;
 }
 #prime-numbers-uppercase:checked::after, 
