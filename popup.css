@@ -97,12 +97,19 @@ header .configs {
 }
 header .configs div {
   flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+header .configs div label {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 #min-number, #max-number {
   min-width: 2ch;
   max-width: 7ch;
-  text-align: center;
   border: 0 none;
   background-color: transparent;
   font-size: 19px;
