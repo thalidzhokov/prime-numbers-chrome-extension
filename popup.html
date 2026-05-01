@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-
+    <section id="prime-numbers">
     <nav>
       <div class="navigation">
         <div>
@@ -38,7 +38,10 @@
     </nav>
 
     <header>
-      <h1 class="title">Prime Numbers</h1>
+      <h1 class="title">
+        <span class="symbol">&Popf;</span> 
+        Prime Numbers
+      </h1>
       <div class="configs">
         <div>
           <label for="min-number">From</label>
@@ -56,6 +59,51 @@
         <!-- <div class="prime-numbers-list-item"></div> -->
       </div>
     </main>
+    </section>
+
+    <section id="password-generator">
+      <header>
+        <h1 class="title">
+          <span class="symbol">&Wscr;</span> 
+          Password Generator
+        </h1>
+        <div class="configs">
+          <div>
+            <label for="password-length">Length</label>
+            <input id="password-length" value="16" inputmode="numeric" minlength="8" maxlength="32">
+          </div>
+          <div>
+            <button id="generate-password">Generate</button>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div id="password-generator-results">
+          <div>
+            <span>Буквы в верхнем и нижнем регистре</span>
+            <span>Password</span>
+          </div>
+          <div>
+            <span>Буквы и цифры</span>
+            <span>Password1</span>
+          </div>
+          <div>
+            <span>Буквы, цифры, символы</span>
+            <span>Password1!</span>
+          </div>
+          <div>
+            <span>Буквы, цифры, префикс</span>
+            <span>PrefixPassword</span>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Who am I? -->
+    <section id="whoami">
+      <header></header>
+      <main></main>
+    </section>
 
     <footer>
       <div class="copyright">
