@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <section id="prime-numbers">
+
+    <!-- Navigation -->
     <nav>
       <div class="navigation">
         <div>
@@ -37,74 +38,107 @@
       </div>
     </nav>
 
-    <header>
-      <h1 class="title">
-        <span class="symbol">&Popf;</span> 
-        Prime Numbers
-      </h1>
-      <div class="configs">
-        <div>
-          <label for="min-number">From</label>
-          <input id="min-number" value="1" inputmode="numeric" minlength="1" maxlength="6">
-        </div>
-        <div>
-          <label for="max-number">To</label>
-          <input id="max-number" value="1013" inputmode="numeric" minlength="1" maxlength="6">
-        </div>
-      </div>
-    </header>
+    <!-- Sections -->
+    <div class="sections">
 
-    <main class="prime-numbers-list">
-      <div id="prime-numbers-list">
-        <!-- <div class="prime-numbers-list-item"></div> -->
-      </div>
-    </main>
-    </section>
-
-    <section id="password-generator">
+      <!-- Prime numbers -->
+      <section id="prime-numbers">
       <header>
         <h1 class="title">
-          <span class="symbol">&Wscr;</span> 
-          Password Generator
+          <span class="symbol">&Popf;</span> 
+          Prime Numbers
         </h1>
         <div class="configs">
           <div>
-            <label for="password-length">Length</label>
-            <input id="password-length" value="16" inputmode="numeric" minlength="8" maxlength="32">
+            <label for="min-number">From</label>
+            <input id="min-number" value="1" inputmode="numeric" minlength="1" maxlength="6">
           </div>
           <div>
-            <button id="generate-password">Generate</button>
+            <label for="max-number">To</label>
+            <input id="max-number" value="1013" inputmode="numeric" minlength="1" maxlength="6">
+          </div>
+          <div class="button">
+            <button id="get-prime-numbers">Get Prime Numbers</button>
           </div>
         </div>
       </header>
-      <main>
-        <div id="password-generator-results">
-          <div>
-            <span>Буквы в верхнем и нижнем регистре</span>
-            <span>Password</span>
-          </div>
-          <div>
-            <span>Буквы и цифры</span>
-            <span>Password1</span>
-          </div>
-          <div>
-            <span>Буквы, цифры, символы</span>
-            <span>Password1!</span>
-          </div>
-          <div>
-            <span>Буквы, цифры, префикс</span>
-            <span>PrefixPassword</span>
-          </div>
+
+      <main class="prime-numbers-list">
+        <div id="prime-numbers-list">
+          <!-- <div class="prime-numbers-list-item"></div> -->
         </div>
       </main>
-    </section>
+      </section>
 
-    <!-- Who am I? -->
-    <section id="whoami">
-      <header></header>
-      <main></main>
-    </section>
+      <!-- Password Generator -->
+      <section id="password-generator">
+        <header>
+          <h1 class="title">
+            <span class="symbol">&Wscr;</span> 
+            Password Generator
+          </h1>
+          <div class="configs">
+            <div>
+              <label for="prime-numbers-uppercase">UPPERCASE</label>
+              <input id="prime-numbers-uppercase" type="checkbox" checked>
+            </div>
+            <div>
+              <label for="prime-numbers-lowercase">Digits 0-9</label>
+              <input id="prime-numbers-lowercase" type="checkbox" checked>
+            </div>
+            <div>
+              <label for="prime-numbers-special" data-special="!#$%&()*+,-./:;<=>?@[\]^_\{|}~">Special</label>
+              <input id="prime-numbers-special" type="checkbox">
+            </div>
+            <div>
+              <label for="prime-numbers-words">Words</label>
+              <input id="prime-numbers-words" type="checkbox" checked>
+            </div>
+            <div class="password-length">
+              <label for="password-length">Length</label>
+              <input id="password-length" value="16" inputmode="numeric" minlength="8" maxlength="32">
+            </div>
+            <div class="button">
+              <button id="generate-password">Generate Passwords</button>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div id="password-generator-results">
+            <div>
+              <span>Буквы в верхнем и нижнем регистре</span>
+              <span>Password</span>
+            </div>
+            <div>
+              <span>Буквы и цифры</span>
+              <span>Password1</span>
+            </div>
+            <div>
+              <span>Буквы, цифры, символы</span>
+              <span>Password1!</span>
+            </div>
+            <div>
+              <span>Буквы, цифры, слова</span>
+              <span>WordInPassword1</span>
+            </div>
+          </div>
+        </main>
+      </section>
 
+      <!-- Who am I? -->
+      <section id="whoami">
+        <header>
+          <h1 class="title">
+            <span class="symbol">P₁</span> 
+            Who am I?
+          </h1>
+        </header>
+        <main></main>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
     <footer>
       <div class="copyright">
         <span>by <a href="https://github.com/thalidzhokov">Albert Thalidzhokov</a></span>
