@@ -225,8 +225,32 @@ header .configs div label {
   border: 0 none;
   background: transparent;
   cursor: pointer;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
-
+#password-length::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 100%;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+#password-length::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(139, 90, 213, 1);
+  border-radius: 16px;
+}
 
 /* Main */
 
