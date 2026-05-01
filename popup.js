@@ -1,5 +1,5 @@
 const MIN_NUMBER = 1;
-const MAX_NUMBER = 1000;
+const MAX_NUMBER = 1013;
 
 function isPrime(number) {
   if (number < 2) {
