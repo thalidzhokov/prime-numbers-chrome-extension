@@ -23,7 +23,6 @@
 *.woff binary
 *.woff2 binary
 *.otf binary
-*.svg binary
 *.pdf binary
 *.swf binary
 *.mmdb binary
