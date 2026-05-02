@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Prime Numbers Popup",
+  "name": "Prime Numbers",
   "version": "1.0.0",
   "description": "Shows prime numbers from 1 to 1000 in a popup.",
   "action": {
