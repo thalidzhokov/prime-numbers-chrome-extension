@@ -12,7 +12,7 @@
     <nav>
       <div class="navigation">
         <div>
-          <a href="#prime-numbers" class="active">
+          <a href="#prime-numbers" class="active" data-section-index="0">
             <span class="icon">
               <img src="icons/number-13.svg" alt="Prime Numbers">
             </span>
@@ -20,7 +20,7 @@
           </a>
         </div>
         <div>
-          <a href="#password-generator">
+          <a href="#password-generator" data-section-index="1">
             <span class="icon">
               <img src="icons/password.svg" alt="Password Generator">
             </span>
@@ -28,7 +28,7 @@
           </a>
         </div>
         <div>
-          <a href="#whoami">
+          <a href="#whoami" data-section-index="2">
             <span class="icon">
               <img src="icons/user.svg" alt="Who am I?">
             </span>
@@ -38,11 +38,12 @@
       </div>
     </nav>
 
-    <!-- Sections -->
+    <!-- Sections: внешний блок — вьюпорт, внутренний — лента со сдвигом -->
     <div class="sections">
+      <div class="sections-track">
 
       <!-- Prime numbers -->
-      <section id="prime-numbers">
+      <section id="tab-prime-numbers">
       <header>
         <h1 class="title">
           <span class="symbol">&Popf;</span> 
@@ -58,98 +59,56 @@
             <input id="max-number" type="number" min="1" max="999999" value="1013">
           </div>
           <div class="button">
-            <button id="get-prime-numbers">Get Primes</button>
+            <button id="get-prime-numbers" type="button">Get Primes</button>
           </div>
         </div>
       </header>
 
       <main>
-        <div id="prime-numbers-list">
-          <div class="prime-numbers-list-item">2</div>
-          <div class="prime-numbers-list-item">3</div>
-          <div class="prime-numbers-list-item">5</div>
-          <div class="prime-numbers-list-item">7</div>
-          <div class="prime-numbers-list-item">11</div>
-          <div class="prime-numbers-list-item">13</div>
-          <div class="prime-numbers-list-item">17</div>
-          <div class="prime-numbers-list-item">19</div>
-          <div class="prime-numbers-list-item">23</div>
-          <div class="prime-numbers-list-item">29</div>
-          <div class="prime-numbers-list-item">31</div>
-          <div class="prime-numbers-list-item">37</div>
-          <div class="prime-numbers-list-item">41</div>
-          <div class="prime-numbers-list-item">43</div>
-          <div class="prime-numbers-list-item">47</div>
-          <div class="prime-numbers-list-item">53</div>
-          <div class="prime-numbers-list-item">59</div>
-          <div class="prime-numbers-list-item">61</div>
-          <div class="prime-numbers-list-item">67</div>
-          <div class="prime-numbers-list-item">71</div>
-          <div class="prime-numbers-list-item">73</div>
-          <div class="prime-numbers-list-item">79</div>
-          <div class="prime-numbers-list-item">83</div>
-          <div class="prime-numbers-list-item">89</div>
-          <div class="prime-numbers-list-item">97</div>
-          <div class="prime-numbers-list-item">101</div>
-          <div class="prime-numbers-list-item">103</div>
-        </div>
+        <div id="prime-numbers-list"></div>
+        <p id="prime-numbers-message" class="section-message" hidden></p>
       </main>
       </section>
 
       <!-- Password Generator -->
-      <section id="password-generator">
+      <section id="tab-password-generator">
         <header>
           <h1 class="title">
             <span class="symbol">&Wscr;</span> 
             Password Generator
           </h1>
           <div class="configs">
-            <div>
-              <label for="prime-numbers-uppercase">UPPERCASE</label>
-              <input id="prime-numbers-uppercase" type="checkbox" checked>
-            </div>
-            <div>
-              <label for="prime-numbers-lowercase">Digits 0-9</label>
-              <input id="prime-numbers-lowercase" type="checkbox" checked>
-            </div>
-            <div>
-              <label for="prime-numbers-special" data-special="!#$%&()*+,-./:;<=>?@[\]^_\{|}~">Special</label>
-              <input id="prime-numbers-special" type="checkbox">
-            </div>
-            <div>
-              <label for="prime-numbers-words">Words</label>
-              <input id="prime-numbers-words" type="checkbox" checked>
+            <div class="password-toggle-row">
+              <div>
+                <label for="password-uppercase">Uppercase</label>
+                <input id="password-uppercase" type="checkbox" checked>
+              </div>
+              <div>
+                <label for="password-digits">Digits 0–9</label>
+                <input id="password-digits" type="checkbox" checked>
+              </div>
+              <div>
+                <label for="password-special">Special</label>
+                <input id="password-special" type="checkbox">
+              </div>
             </div>
             <div class="password-length">
               <label for="password-length">Length</label>
               <input id="password-length" type="range" min="8" max="32" value="20">
             </div>
             <div class="button">
-              <button id="generate-password">Generate Passwords</button>
+              <button id="generate-password" type="button">Generate Passwords</button>
             </div>
           </div>
         </header>
         <main>
-          <div id="password-generator-results">
-            <div><span>YourStrongPassword1@HEREis01Char</span></div>
-            <div><span>YourStrongPassword1@HEREis02Char</span></div>
-            <div><span>YourStrongPassword1@HEREis03Char</span></div>
-            <div><span>YourStrongPassword1@HEREis04Char</span></div>
-            <div><span>YourStrongPassword1@HEREis05Char</span></div>
-            <div><span>YourStrongPassword1@HEREis06Char</span></div>
-            <div><span>YourStrongPassword1@HEREis07Char</span></div>
-            <div><span>YourStrongPassword1@HEREis08Char</span></div>
-            <div><span>YourStrongPassword1@HEREis09Char</span></div>
-            <div><span>YourStrongPassword1@HEREis10Char</span></div>
-            <div><span>YourStrongPassword1@HEREis11Char</span></div>
-            <div><span>YourStrongPassword1@HEREis12Char</span></div>
-            <div><span>YourStrongPassword1@HEREis13Char</span></div>
-          </div>
+          <div id="password-generator-results"></div>
+          <p id="password-generator-message" class="section-message" hidden></p>
         </main>
       </section>
 
       <!-- Who am I? -->
-      <section id="whoami">
+      <section id="tab-whoami">
         <header>
           <h1 class="title">
             <span class="symbol">&Hopf;</span> 
@@ -157,39 +116,11 @@
           </h1>
         </header>
         <main>
-          <div id="whoami-results">
-            <h3>navigator</h3>
-            <ul>
-              <li>appCodeName: ...</li>
-              <li>appName: ...</li>
-              <li>appVersion: ...</li>
-              <li>...</li>
-              <li>...</li>
-              <li>...</li>
-              <li>...</li>
-            </ul>
-            <h3>localStorage</h3>
-            <ul>
-              <li>...</li>
-              <li>...</li>
-              <li>...</li>
-            </ul>
-            <h3>sessionStorage</h3>
-            <ul>
-              <li>...</li>
-              <li>...</li>
-              <li>...</li>
-            </ul>
-            <h3>IndexedDB</h3>
-            <ul>
-              <li>...</li>
-              <li>...</li>
-              <li>...</li>
-            </ul>
-          </div>
+          <div id="whoami-results"></div>
         </main>
       </section>
 
+      </div>
     </div>
 
     <!-- Footer -->
@@ -199,6 +130,10 @@
       </div>
     </footer>
 
+    <script src="js/common.js"></script>
+    <script src="js/prime-numbers.js"></script>
+    <script src="js/password-generator.js"></script>
+    <script src="js/whoami.js"></script>
     <script src="js/popup.js"></script>
 </div>
 </body>
