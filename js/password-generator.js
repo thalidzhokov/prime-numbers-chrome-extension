@@ -67,6 +67,7 @@ function renderPasswords() {
   for (const pwd of rows) {
     const row = document.createElement('div');
     const span = document.createElement('span');
+    span.className = 'copyable-value';
     span.textContent = pwd;
     row.appendChild(span);
     container.appendChild(row);
@@ -90,5 +91,4 @@ function initPasswordGenerator() {
   const passwordLengthInput = document.getElementById('password-length');
   passwordLengthInput.addEventListener('input', syncPasswordLengthRangeVisual);
   syncPasswordLengthRangeVisual();
-  bindCopyOnClick(document.getElementById('password-generator-results'));
 }

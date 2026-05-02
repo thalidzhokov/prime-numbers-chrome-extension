@@ -11,6 +11,7 @@ function appendKeyValueList(root, title, entries) {
   } else {
     for (const [k, v] of entries) {
       const li = document.createElement('li');
+      li.className = 'copyable-value';
       li.innerHTML = `${escapeHtml(k)}: ${escapeHtml(v)}`;
       ul.appendChild(li);
     }
@@ -66,17 +67,17 @@ function renderWhoami() {
 
   appendKeyValueList(
     root,
-    'LocalStorage (данные этого расширения)',
+    'Данные этого расширения (localStorage)',
     storageEntries(localStorage),
   );
   appendKeyValueList(
     root,
-    'SessionStorage (пока открыт попап)',
+    'Данные сессии (sessionStorage)',
     storageEntries(sessionStorage),
   );
 
   const h3db = document.createElement('h3');
-  h3db.textContent = 'IndexedDB (базы на origin расширения)';
+  h3db.textContent = 'Базы на origin расширения (indexedDB)';
   root.appendChild(h3db);
   const ulDb = document.createElement('ul');
   root.appendChild(ulDb);
@@ -106,6 +107,7 @@ function renderWhoami() {
       }
       for (const info of dbs) {
         const li = document.createElement('li');
+        li.className = 'copyable-value';
         const name = info.name == null ? '(без имени)' : info.name;
         const ver = info.version == null ? '?' : String(info.version);
         li.textContent = `${name} v${ver}`;

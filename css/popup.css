@@ -357,14 +357,15 @@ header .configs label {
 #prime-numbers-list div span {
   display: block;
   float: left;
-  position: relative;
 }
-#prime-numbers-list div span:hover {
+.copyable-value {
+  position: relative;
   cursor: pointer;
+}
+.copyable-value:hover {
   color: #fff;
 }
-/* Иконка копирования справа от числа */
-#prime-numbers-list div span:hover::after {
+.copyable-value:hover::after {
   content: '';
   display: block;
   position: absolute;
@@ -376,6 +377,7 @@ header .configs label {
   background-image: url('../icons/clipboard-copy.svg');
   background-size: 100%;
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 /* Password Generator */
@@ -393,26 +395,7 @@ header .configs label {
 }
 #password-generator-results div span {
   font-family: monospace;
-  position: relative;
   font-size: 16px;
-}
-#password-generator-results div span:hover {
-  cursor: pointer;
-  color: #fff;
-}
-/* Иконка копирования справа от пароля */
-#password-generator-results div span:hover::after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: -18px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  background-image: url('../icons/clipboard-copy.svg');
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 /* Who am I? */
@@ -444,6 +427,9 @@ header .configs label {
   color: #888;
   font-family: sans-serif;
   font-size: 12px;
+}
+#whoami-results li.copyable-value {
+  padding-right: 20px;
 }
 
 /* Footer */

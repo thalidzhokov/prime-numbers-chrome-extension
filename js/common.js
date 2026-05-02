@@ -144,13 +144,17 @@ function initNavigation() {
   });
 }
 
-function bindCopyOnClick(container) {
-  container.addEventListener('click', (event) => {
-    const span = event.target.closest('span');
-    if (!span || !container.contains(span)) {
+function initCopyOnClick() {
+  const root = document.querySelector('.container');
+  if (!root) {
+    return;
+  }
+  root.addEventListener('click', (event) => {
+    const el = event.target.closest('.copyable-value');
+    if (!el || !root.contains(el)) {
       return;
     }
-    const text = span.textContent;
+    const text = el.textContent.trim();
     if (!text) {
       return;
     }

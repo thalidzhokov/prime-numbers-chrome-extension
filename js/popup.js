@@ -1,3 +1,4 @@
+initCopyOnClick();
 initPrimeNumbers();
 initPasswordGenerator();
 initWhoami();

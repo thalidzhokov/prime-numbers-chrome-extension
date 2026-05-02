@@ -76,6 +76,7 @@ function renderPrimeNumbers() {
   for (const primeNumber of primeNumbers) {
     const row = document.createElement('div');
     const span = document.createElement('span');
+    span.className = 'copyable-value';
     span.textContent = String(primeNumber);
     row.appendChild(span);
     primeListElement.appendChild(row);
@@ -84,5 +85,4 @@ function renderPrimeNumbers() {
 
 function initPrimeNumbers() {
   document.getElementById('get-prime-numbers').addEventListener('click', renderPrimeNumbers);
-  bindCopyOnClick(document.getElementById('prime-numbers-list'));
 }
