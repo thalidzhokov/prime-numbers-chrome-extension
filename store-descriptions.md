@@ -8,11 +8,11 @@
 
 ### Русский
 
-Простые числа в диапазоне, генератор паролей, сводка navigator и хранилищ. Локально в попапе.
+Простые числа в диапазоне, генератор паролей, сводка navigator. Локально в попапе.
 
 ### English
 
-Primes in a range, password generator, local navigator and storage overview. Offline popup only.
+Primes in a range, password generator, and local navigator overview. Offline popup only.
 
 ---
 
@@ -26,7 +26,7 @@ Primes in a range, password generator, local navigator and storage overview. Off
 
 - **Простые числа** — вводите границы диапазона, получаете список простых; значения можно копировать по клику.
 - **Генератор паролей** — случайные пароли заданной длины с настройкой набора символов (регистр, цифры, спецсимволы); строки копируются по клику.
-- **Who am I?** — наглядно показаны свойства `navigator`, содержимое `localStorage` и `sessionStorage` в контексте расширения, список баз **IndexedDB** для origin расширения; строки тоже копируются по клику.
+- **Who am I?** — выбранные свойства объекта `navigator`; строки копируются по клику.
 
 **Конфиденциальность**
 
@@ -40,7 +40,7 @@ Primes in a range, password generator, local navigator and storage overview. Off
 
 - **Prime numbers** — enter a range and get a list of primes; click a value to copy it.
 - **Password generator** — random passwords at your chosen length, with options for character sets (case, digits, symbols); click a row to copy.
-- **Who am I?** — a clear view of `navigator` properties, `localStorage` and `sessionStorage` for the extension context, and **IndexedDB** database names for the extension origin; lines are copyable on click.
+- **Who am I?** — selected `navigator` properties; lines are copyable on click.
 
 **Privacy**
 

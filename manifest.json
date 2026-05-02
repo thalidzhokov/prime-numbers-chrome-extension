@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Prime Numbers",
   "version": "1.0.0",
-  "description": "Primes in a range, password generator, local navigator and storage overview. Offline popup only.",
+  "description": "Primes in a range, password generator, and local navigator overview. Offline popup only.",
   "icons": {
     "16": "icons/primes-ext-logo-16.png",
     "32": "icons/primes-ext-logo-32.png",
