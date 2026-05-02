@@ -325,22 +325,22 @@ header .configs div label {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 15px;
 }
-.prime-numbers-list div {
+#prime-numbers-list div {
   flex: 0 0 25%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 5px;
 }
-.prime-numbers-list div span {
+#prime-numbers-list div span {
   display: block;
   float: left;
   position: relative;
 }
-.prime-numbers-list div span:hover {
+#prime-numbers-list div span:hover {
   cursor: pointer;
   color: #fff;
 }
 /* Иконка копирования справа от числа */
-.prime-numbers-list div span:hover::after {
+#prime-numbers-list div span:hover::after {
   content: '';
   display: block;
   position: absolute;
