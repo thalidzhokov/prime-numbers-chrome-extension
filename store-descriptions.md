@@ -36,7 +36,7 @@ Primes in a range, password generator, and local navigator overview. Offline pop
 
 **Prime Numbers** is a compact popup for everyday developer tasks and more.
 
-**What’s inside**
+**What's inside**
 
 - **Prime numbers** — enter a range and get a list of primes; click a value to copy it.
 - **Password generator** — random passwords at your chosen length, with options for character sets (case, digits, symbols); click a row to copy.
