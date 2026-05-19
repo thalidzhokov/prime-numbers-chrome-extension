@@ -1,4 +1,4 @@
-const SECTION_IDS = ['prime-numbers', 'password-generator', 'whoami'];
+const SECTION_IDS = ['prime-numbers', 'password-generator', 'fingerprint'];
 const PASSWORD_SECTION_ID = 'password-generator';
 
 let slideTransitionReady = false;

@@ -398,7 +398,7 @@ header .configs label {
   font-size: 16px;
 }
 
-/* Who am I? */
+/* Fingerprint */
 .section-message {
   margin: 8px 0 0;
   padding: 8px;
@@ -408,30 +408,49 @@ header .configs label {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#whoami-results h3 {
-  font-size: 15px;
-  margin-top: 0;
+#fingerprint-results .fingerprint-loading {
+  color: #888;
+}
+#fingerprint-results .fingerprint-error {
+  /* Error message */
+  color: #888;
+}
+#fingerprint-results .fingerprint-payload {
+  margin: 0;
+  font-family: monospace;
+  font-size: 11px;
+  overflow-x: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#fingerprint-results .fingerprint-canvas-images {
+  margin-top: 10px;
+}
+#fingerprint-results .fingerprint-canvas-figure {
+  margin: 0 0 10px;
+}
+#fingerprint-results .fingerprint-canvas-figure:last-child {
   margin-bottom: 0;
 }
-#whoami-results ul {
-  margin-top: 5px;
-  margin-bottom: 15px;
-  padding-left: 15px;
-  list-style-type: '> ';
-  font-family: monospace;
-}
-#whoami-results li.whoami-empty {
-  list-style-type: none;
-  margin-left: -15px;
-  padding-left: 0;
+#fingerprint-results .fingerprint-canvas-figure figcaption {
+  margin-bottom: 4px;
+  font-size: 11px;
   color: #888;
-  font-family: sans-serif;
-  font-size: 12px;
+  text-transform: uppercase;
 }
-#whoami-results li.copyable-value {
-  padding-right: 20px;
+#fingerprint-results .fingerprint-canvas-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background-color: #fff;
 }
-
+#fingerprint-results .fingerprint-canvas-note {
+  margin: 0;
+  font-size: 11px;
+  color: #888;
+}
 /* Footer */
 footer {
   font-size: 10px;

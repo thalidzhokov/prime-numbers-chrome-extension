@@ -1,6 +1,6 @@
 initCopyOnClick();
 initPrimeNumbers();
 initPasswordGenerator();
-initWhoami();
+initFingerprint();
 initNavigation();
 renderPrimeNumbers();
