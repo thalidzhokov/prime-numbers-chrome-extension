@@ -419,10 +419,29 @@ header .configs label {
   margin: 0;
   font-family: monospace;
   font-size: 11px;
-  overflow-x: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  height: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  position: relative;
 }
+#fingerprint-results .fingerprint-payload:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: unset;
+  transform: none;
+  right: 4px;
+  bottom: 4px;
+  width: 16px;
+  height: 16px;
+  background-image: url('../icons/clipboard-copy.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
 #fingerprint-results .fingerprint-canvas-images {
   margin-top: 10px;
 }

@@ -2,20 +2,13 @@ let fpAgentPromise = null;
 
 const CANVAS_IMAGE_KEYS = ['geometry', 'text'];
 
-function getFingerprintModuleUrl() {
-  if (typeof chrome === 'undefined' || !chrome.runtime || !chrome.runtime.getURL) {
-    return null;
-  }
-  return chrome.runtime.getURL('js/vendor/fp.esm.js');
+function getFingerprintJS() {
+  return FingerprintJS.default || FingerprintJS;
 }
 
 function loadFingerprintAgent() {
-  const moduleUrl = getFingerprintModuleUrl();
-  if (!moduleUrl) {
-    return Promise.reject(new Error('not-extension'));
-  }
   if (!fpAgentPromise) {
-    fpAgentPromise = import(moduleUrl).then((mod) => mod.default.load({ monitoring: false }));
+    fpAgentPromise = getFingerprintJS().load({ monitoring: false });
   }
   return fpAgentPromise;
 }
@@ -142,14 +135,6 @@ function renderFingerprint() {
     return;
   }
 
-  if (!getFingerprintModuleUrl()) {
-    renderFingerprintError(
-      root,
-      'Откройте popup через иконку расширения в Chrome (chrome://extensions → «Загрузить распакованное»). Файл popup.html напрямую не поддерживается.',
-    );
-    return;
-  }
-
   renderFingerprintLoading(root);
 
   loadFingerprintAgent()
@@ -162,6 +147,4 @@ function renderFingerprint() {
     });
 }
 
-function initFingerprint() {
-  renderFingerprint();
-}
+renderFingerprint();
