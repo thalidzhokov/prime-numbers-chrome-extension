@@ -436,7 +436,7 @@ header .configs label {
   height: auto;
   max-height: none;
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: auto;
 }
 #fingerprint-results .fingerprint-payload-toggle {
   display: block;
