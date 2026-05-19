@@ -11,7 +11,7 @@ Prime Numbers does not collect, transmit, or sell personal data.
 The extension may process the following data locally in your browser:
 - user-entered number ranges (for prime number calculation);
 - user-selected password generator settings;
-- browser environment details displayed in the "Who am I?" tab (selected `navigator` properties).
+- browser fingerprint data displayed in the Fingerprint tab (computed locally via FingerprintJS).
 
 ## 2. How We Use Data
 
