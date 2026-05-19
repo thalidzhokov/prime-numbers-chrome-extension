@@ -309,7 +309,7 @@ header {
   }
 }
 
-$password-toggle-ids: #password-uppercase, #password-digits, #password-special;
+$password-toggle-ids: '#password-uppercase', '#password-digits', '#password-special';
 
 @each $id in $password-toggle-ids {
   #{$id} {
