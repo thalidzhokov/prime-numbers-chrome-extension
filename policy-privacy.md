@@ -1,6 +1,6 @@
 # Privacy Policy — Prime Numbers
 
-**Effective date:** 2026-05-06
+**Effective date:** 2026-05-19
 
 Prime Numbers respects your privacy.
 
@@ -11,18 +11,18 @@ Prime Numbers does not collect, transmit, or sell personal data.
 The extension may process the following data locally in your browser:
 - user-entered number ranges (for prime number calculation);
 - user-selected password generator settings;
-- browser fingerprint data displayed in the Fingerprint tab (computed locally via FingerprintJS).
+- a browser fingerprint on the Fingerprint tab (visitor identifier, user agent, and technical signals such as canvas rendering), computed locally with the bundled open-source FingerprintJS library.
 
 ## 2. How We Use Data
 
 All processed data is used only to provide extension features on your device:
 - calculating prime numbers;
 - generating passwords;
-- displaying browser environment information in the UI.
+- showing the fingerprint report in the popup UI.
 
 ## 3. Data Sharing
 
-Prime Numbers does not send user data to external servers and does not share user data with third parties.
+Prime Numbers does not send user data to external servers and does not share user data with third parties. The Fingerprint tab does not use network requests for fingerprinting in this extension.
 
 ## 4. Data Storage
 
@@ -31,11 +31,11 @@ All processing happens locally in the user's browser.
 
 ## 5. Permissions and Access
 
-Prime Numbers is a local popup utility and does not request unnecessary permissions unrelated to its functionality.
+Prime Numbers is a local popup utility and does not request host permissions or other access unrelated to its functionality.
 
 ## 6. Security
 
-Because user data is not transmitted to external services, there is no server-side exposure of user data by this extension. Users control what they enter.
+Because user data is not transmitted to external services, there is no server-side exposure of user data by this extension. Users control what they enter and may copy the fingerprint report from the popup.
 
 ## 7. Policy Updates
 
