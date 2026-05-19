@@ -118,13 +118,70 @@ function renderFingerprintError(root, message) {
   root.appendChild(el);
 }
 
+function getFingerprintByteSize(text) {
+  return new TextEncoder().encode(text).length;
+}
+
+function formatFingerprintSizeLabel(byteSize) {
+  const kb = byteSize / 1024;
+  if (byteSize === 0) {
+    return '0 КБ';
+  }
+  if (kb < 1) {
+    return `${kb.toFixed(2)} КБ`;
+  }
+  if (kb < 100) {
+    return `${kb.toFixed(1)} КБ`;
+  }
+  return `${Math.round(kb)} КБ`;
+}
+
 function renderFingerprintResult(root, result) {
   const text = formatFingerprintPayload(result);
+  const sizeLabel = formatFingerprintSizeLabel(getFingerprintByteSize(text));
   root.innerHTML = '';
+
+  const block = document.createElement('div');
+  block.className = 'fingerprint-payload-block';
+
   const pre = document.createElement('pre');
-  pre.className = 'fingerprint-payload copyable-value';
+  pre.className = 'fingerprint-payload fingerprint-payload--collapsed copyable-value';
   pre.textContent = text;
-  root.appendChild(pre);
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'fingerprint-payload-toggle';
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', `Развернуть, ${sizeLabel}`);
+
+  const toggleInner = document.createElement('span');
+  toggleInner.className = 'fingerprint-payload-toggle-inner';
+
+  const icon = document.createElement('span');
+  icon.className = 'fingerprint-payload-toggle-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = '⊕';
+
+  const size = document.createElement('span');
+  size.className = 'fingerprint-payload-toggle-size';
+  size.textContent = sizeLabel;
+
+  toggleInner.appendChild(icon);
+  toggleInner.appendChild(size);
+  toggle.appendChild(toggleInner);
+
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const expanded = pre.classList.toggle('fingerprint-payload--expanded');
+    pre.classList.toggle('fingerprint-payload--collapsed', !expanded);
+    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    toggle.setAttribute('aria-label', expanded ? `Свернуть, ${sizeLabel}` : `Развернуть, ${sizeLabel}`);
+    icon.textContent = expanded ? '⊖' : '⊕';
+  });
+
+  block.appendChild(pre);
+  block.appendChild(toggle);
+  root.appendChild(block);
 
   renderFingerprintCanvasImages(root, result);
 }

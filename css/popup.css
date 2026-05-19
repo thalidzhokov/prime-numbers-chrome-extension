@@ -415,16 +415,63 @@ header .configs label {
   /* Error message */
   color: #888;
 }
+#fingerprint-results .fingerprint-payload-block {
+  margin: 0;
+}
 #fingerprint-results .fingerprint-payload {
   margin: 0;
   font-family: monospace;
   font-size: 11px;
-  overflow: hidden;
-  height: 320px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
   padding: 10px;
   position: relative;
+  box-sizing: border-box;
+}
+#fingerprint-results .fingerprint-payload--collapsed {
+  max-height: 320px;
+  overflow: hidden;
+}
+#fingerprint-results .fingerprint-payload--expanded {
+  height: auto;
+  max-height: none;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+#fingerprint-results .fingerprint-payload-toggle {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background-color: #1a1a1a;
+  color: #bbb;
+  cursor: pointer;
+  line-height: 1;
+}
+#fingerprint-results .fingerprint-payload-toggle:hover {
+  color: #fff;
+  background-color: #2a2a2a;
+}
+#fingerprint-results .fingerprint-payload-toggle-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+#fingerprint-results .fingerprint-payload-toggle-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+#fingerprint-results .fingerprint-payload-toggle-size {
+  font-size: 11px;
+  line-height: 1;
+  color: #888;
+}
+#fingerprint-results .fingerprint-payload-toggle:hover .fingerprint-payload-toggle-size {
+  color: #bbb;
 }
 #fingerprint-results .fingerprint-payload:hover::after {
   content: '';
