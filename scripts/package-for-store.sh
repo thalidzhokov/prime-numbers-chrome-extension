@@ -6,6 +6,17 @@ ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 cd "${ROOT_DIR}"
 
+if [[ -f "package.json" ]] && command -v npm >/dev/null 2>&1; then
+  if [[ ! -d "node_modules/sass" ]]; then
+    if [[ -f "package-lock.json" ]]; then
+      npm ci
+    else
+      npm install
+    fi
+  fi
+  npm run build:css
+fi
+
 if ! command -v zip >/dev/null 2>&1; then
   echo "Ошибка: команда 'zip' не найдена. Установите zip и повторите."
   exit 1

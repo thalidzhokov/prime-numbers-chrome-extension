@@ -1,5 +1,5 @@
 const PASSWORD_ROWS = 13;
-const PASSWORD_SPECIAL = '!#$%&()*+,-./:;<=>?@[]^{|}~';
+const PASSWORD_SPECIAL = '!#$%&()*+,-._/:;<=>?@[]^{|}~';
 
 let passwordRegenScheduled = false;
 

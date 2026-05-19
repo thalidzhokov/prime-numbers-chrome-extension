@@ -1,6 +1,85 @@
 # Prime Numbers — Chrome extension
 
-Popup: primes in a custom range, a password generator, and a **Who am I?** tab with selected `navigator` fields. Everything stays on your device.
+Manifest V3 popup extension: primes in a custom range, a password generator, and a **Fingerprint** tab (selected `navigator` fields and FingerprintJS payload, computed locally). No background scripts, no network calls — everything stays on your device.
+
+**Version:** see `manifest.json` (currently `1.1.0`).
+
+## Features
+
+| Tab | What it does |
+|-----|----------------|
+| **Primes** | Lists prime numbers between user-defined min/max; values are copyable. |
+| **Pass Gen** | Generates passwords with configurable length and character classes. |
+| **Fingerprint** | Shows browser fingerprint data and related canvas output; copyable JSON block. |
+
+Privacy details: [policy-privacy.md](policy-privacy.md).
+
+## Install for development
+
+1. Clone the repository.
+2. Build styles (see below) so `css/popup.css` matches `css/popup.scss`.
+3. Open `chrome://extensions`, enable **Developer mode**, click **Load unpacked**, select the project root (folder with `manifest.json`).
+
+After changing JS or HTML, click **Reload** on the extension card. After changing SCSS, recompile CSS (or keep `watch:css` running) and reload the extension if styles do not update.
+
+## Project layout
+
+```
+manifest.json          # Extension manifest (MV3)
+popup.html             # Popup markup
+css/
+  popup.scss           # Source styles (edit this)
+  popup.css            # Compiled CSS (loaded by popup.html)
+js/
+  popup.js             # Entry: wires modules
+  common.js            # Navigation, copy-to-clipboard, shared UI
+  prime-numbers.js
+  password-generator.js
+  fingerprint.js
+  vendor/fp.min.js     # FingerprintJS (bundled)
+icons/
+scripts/
+  build-css.sh         # One-off SCSS → CSS (npm or Docker)
+  watch-css.sh         # Watch mode (npm or Docker)
+  package-for-store.sh # Zip for Chrome Web Store
+dist/                  # Release archives (generated)
+package.json           # npm scripts for Sass
+```
+
+## Styles (SCSS)
+
+Styles are authored in **`css/popup.scss`** and compiled to **`css/popup.css`**, which `popup.html` references. Do not edit `popup.css` by hand during normal development.
+
+**Requirements:** [Node.js](https://nodejs.org/) with `npm` (for local build), or Docker (fallback scripts).
+
+```bash
+npm install
+npm run build:css    # one-off compile
+npm run watch:css    # recompile on every save to popup.scss
+```
+
+Without `npm` in `PATH` (e.g. Git Bash on Windows):
+
+```bash
+bash scripts/build-css.sh   # compile once
+bash scripts/watch-css.sh   # watch (uses Docker node:22-alpine if npm is missing)
+```
+
+In Cursor / VS Code you can also run **`watch:css`** in a terminal or define a [task](https://code.visualstudio.com/docs/editor/tasks) for `npm run watch:css` — no separate Sass extension is required.
+
+## Package for Chrome Web Store
+
+From the repo root (needs `zip`, `python3`, and `npm` or Docker for CSS build):
+
+```bash
+bash scripts/package-for-store.sh
+```
+
+Creates `dist/prime-numbers-v<version>.zip` from `manifest.json`. The script runs `npm run build:css` when `package.json` is present. Optional archive name:
+
+```bash
+bash scripts/package-for-store.sh my-release.zip
+```
 
 ## Why prime numbers still matter in day-to-day work
 

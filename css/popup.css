@@ -6,22 +6,28 @@ body {
   margin: 0;
   font-family: Sans-serif;
   background-color: #000000;
-  background-image:  repeating-linear-gradient(45deg, #414141 25%, transparent 25%, transparent 75%, #414141 75%, #414141), repeating-linear-gradient(45deg, #414141 25%, #000000 25%, #000000 75%, #414141 75%, #414141);
+  background-image: repeating-linear-gradient(45deg, #414141 25%, transparent 25%, transparent 75%, #414141 75%, #414141), repeating-linear-gradient(45deg, #414141 25%, #000000 25%, #000000 75%, #414141 75%, #414141);
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
   color: #bbb;
 }
+
 .container {
- width: 320px;
+  width: 320px;
   background-color: #222;
 }
+
 a {
   color: #fff;
 }
 a:hover {
   text-decoration: none;
 }
-nav, header, main, footer {
+
+nav,
+header,
+main,
+footer {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -36,6 +42,7 @@ nav, header, main, footer {
   overflow: hidden;
   background-color: #222;
 }
+
 .sections-track {
   display: flex;
   flex-direction: row;
@@ -66,7 +73,6 @@ nav {
 nav .navigation {
   display: flex;
   flex-direction: row;
-  /* overflow-x: auto; */
   overflow: hidden;
   flex: 1 0 auto;
   text-align: center;
@@ -88,11 +94,15 @@ nav .navigation div a {
   transition: 0.5s ease-in-out;
 }
 nav .navigation div a.active {
-  background-color: rgba(107, 47, 172, 1);
+  background-color: rgb(107, 47, 172);
 }
 nav .navigation div a:hover {
-  background-color: rgba(139, 90, 213, 1);
+  background-color: rgb(139, 90, 213);
   text-decoration: none;
+}
+nav .navigation div a:hover span.text {
+  max-width: 140px;
+  opacity: 1;
 }
 nav .navigation div a span {
   flex: 0 0 auto;
@@ -113,10 +123,6 @@ nav .navigation div a span.text {
   overflow: hidden;
   white-space: nowrap;
   transition: max-width 0.25s ease-in-out, padding-left 0.25s ease-in-out, opacity 0.2s ease-in-out;
-}
-nav .navigation div a:hover span.text {
-  max-width: 140px;
-  opacity: 1;
 }
 
 /* Header */
@@ -170,7 +176,9 @@ header .configs label {
   font-size: 10px;
   text-transform: uppercase;
 }
-#min-number, #max-number {
+
+#min-number,
+#max-number {
   text-align: center;
   min-width: 2ch;
   max-width: 8ch;
@@ -182,13 +190,17 @@ header .configs label {
   border-bottom: 4px solid rgba(255, 255, 255, 0.1);
   transition: border-color 0.2s ease-in-out;
 }
-#min-number:focus, #max-number:focus {
-  border-color: rgba(139, 90, 213, 1);
+#min-number:focus,
+#max-number:focus {
+  border-color: rgb(139, 90, 213);
 }
-#min-number:focus-visible, #max-number:focus-visible {
+#min-number:focus-visible,
+#max-number:focus-visible {
   outline: none;
 }
-#get-prime-numbers, #generate-password {
+
+#get-prime-numbers,
+#generate-password {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 13px;
@@ -197,17 +209,109 @@ header .configs label {
   height: 34px;
   border-radius: 5px;
   color: #fff;
-  background-color: rgba(139, 90, 213, 1);
-  box-shadow: 0px 5px 0px 0px rgba(107, 47, 172, 1);
+  background-color: rgb(139, 90, 213);
+  box-shadow: 0 5px 0 0 rgb(107, 47, 172);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
 }
-#get-prime-numbers:active, #generate-password:active {
+#get-prime-numbers:active,
+#generate-password:active {
   transform: translateY(5px);
-  box-shadow: 0 0 0 0 rgba(107, 47, 172, 1);
+  box-shadow: 0 0 0 0 rgb(107, 47, 172);
 }
-#password-uppercase,
-#password-digits,
+
+#password-uppercase {
+  appearance: none;
+  width: 64px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: 0 none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+#password-uppercase::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 64px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #ff373d;
+  z-index: 1;
+  pointer-events: none;
+}
+#password-uppercase:checked::before {
+  background-color: #00ce5d;
+}
+#password-uppercase::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: rgb(255, 255, 255);
+  z-index: 2;
+  pointer-events: none;
+  transition: left 0.2s ease-in-out;
+}
+#password-uppercase:checked::after {
+  left: 38px;
+}
+
+#password-digits {
+  appearance: none;
+  width: 64px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: 0 none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+#password-digits::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 64px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #ff373d;
+  z-index: 1;
+  pointer-events: none;
+}
+#password-digits:checked::before {
+  background-color: #00ce5d;
+}
+#password-digits::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: rgb(255, 255, 255);
+  z-index: 2;
+  pointer-events: none;
+  transition: left 0.2s ease-in-out;
+}
+#password-digits:checked::after {
+  left: 38px;
+}
+
 #password-special {
   appearance: none;
   width: 64px;
@@ -220,10 +324,8 @@ header .configs label {
   cursor: pointer;
   flex-shrink: 0;
 }
-#password-uppercase::before,
-#password-digits::before,
 #password-special::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -231,19 +333,15 @@ header .configs label {
   width: 64px;
   height: 32px;
   border-radius: 16px;
-  background-color: #FF373D;
+  background-color: #ff373d;
   z-index: 1;
   pointer-events: none;
 }
-#password-uppercase:checked::before,
-#password-digits:checked::before,
 #password-special:checked::before {
-  background-color: #00CE5D;
+  background-color: #00ce5d;
 }
-#password-uppercase::after,
-#password-digits::after,
 #password-special::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 6px;
@@ -251,16 +349,15 @@ header .configs label {
   width: 18px;
   height: 18px;
   border-radius: 9px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(255, 255, 255);
   z-index: 2;
   pointer-events: none;
   transition: left 0.2s ease-in-out;
 }
-#password-uppercase:checked::after,
-#password-digits:checked::after,
 #password-special:checked::after {
   left: 38px;
 }
+
 #password-length {
   --track-height: 8px;
   --thumb-size: 16px;
@@ -302,7 +399,7 @@ header .configs label {
   border: none;
 }
 #password-length::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
@@ -310,18 +407,12 @@ header .configs label {
   width: 100%;
   height: var(--track-height);
   border-radius: calc(var(--track-height) / 2);
-  background: linear-gradient(
-    90deg,
-    rgba(139, 90, 213, 1) 0%,
-    rgba(139, 90, 213, 1) calc(var(--range-progress) * 100%),
-    rgba(255, 255, 255, 0.2) calc(var(--range-progress) * 100%),
-    rgba(255, 255, 255, 0.2) 100%
-  );
+  background: linear-gradient(90deg, rgb(139, 90, 213) 0%, rgb(139, 90, 213) calc(var(--range-progress) * 100%), rgba(255, 255, 255, 0.2) calc(var(--range-progress) * 100%), rgba(255, 255, 255, 0.2) 100%);
   z-index: 1;
   pointer-events: none;
 }
 #password-length::after {
-  content: '';
+  content: "";
   position: absolute;
   left: calc((100% - var(--thumb-size)) * var(--range-progress));
   top: 50%;
@@ -329,13 +420,11 @@ header .configs label {
   width: var(--thumb-size);
   height: var(--thumb-size);
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 0 0 8px rgba(107, 47, 172, 1);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 0 8px rgb(107, 47, 172);
   z-index: 2;
   pointer-events: none;
 }
-
-/* Main */
 
 /* Prime Numbers */
 #prime-numbers-list {
@@ -358,6 +447,7 @@ header .configs label {
   display: block;
   float: left;
 }
+
 .copyable-value {
   position: relative;
   cursor: pointer;
@@ -366,7 +456,7 @@ header .configs label {
   color: #fff;
 }
 .copyable-value:hover::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   right: -18px;
@@ -374,7 +464,7 @@ header .configs label {
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background-image: url('../icons/clipboard-copy.svg');
+  background-image: url("../icons/clipboard-copy.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -408,11 +498,8 @@ header .configs label {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#fingerprint-results .fingerprint-loading {
-  color: #888;
-}
+#fingerprint-results .fingerprint-loading,
 #fingerprint-results .fingerprint-error {
-  /* Error message */
   color: #888;
 }
 #fingerprint-results .fingerprint-payload-block {
@@ -438,6 +525,21 @@ header .configs label {
   overflow-x: auto;
   overflow-y: auto;
 }
+#fingerprint-results .fingerprint-payload:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 4px;
+  top: unset;
+  transform: none;
+  width: 16px;
+  height: 16px;
+  background-image: url("../icons/clipboard-copy.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  bottom: 4px;
+}
 #fingerprint-results .fingerprint-payload-toggle {
   display: block;
   width: 100%;
@@ -455,6 +557,9 @@ header .configs label {
   color: #fff;
   background-color: #2a2a2a;
 }
+#fingerprint-results .fingerprint-payload-toggle:hover .fingerprint-payload-toggle-size {
+  color: #bbb;
+}
 #fingerprint-results .fingerprint-payload-toggle-inner {
   display: inline-flex;
   align-items: center;
@@ -470,25 +575,6 @@ header .configs label {
   line-height: 1;
   color: #888;
 }
-#fingerprint-results .fingerprint-payload-toggle:hover .fingerprint-payload-toggle-size {
-  color: #bbb;
-}
-#fingerprint-results .fingerprint-payload:hover::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: unset;
-  transform: none;
-  right: 4px;
-  bottom: 4px;
-  width: 16px;
-  height: 16px;
-  background-image: url('../icons/clipboard-copy.svg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
 #fingerprint-results .fingerprint-canvas-images {
   margin-top: 10px;
 }
@@ -517,6 +603,7 @@ header .configs label {
   font-size: 11px;
   color: #888;
 }
+
 /* Footer */
 footer {
   font-size: 10px;

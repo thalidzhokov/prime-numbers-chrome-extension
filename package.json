@@ -1,0 +1,11 @@
+{
+  "name": "prime-numbers-chrome-extension",
+  "private": true,
+  "scripts": {
+    "build:css": "sass css/popup.scss css/popup.css --style=expanded --no-source-map",
+    "watch:css": "sass css/popup.scss css/popup.css --style=expanded --no-source-map --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

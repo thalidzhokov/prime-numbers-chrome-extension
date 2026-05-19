@@ -3,3 +3,6 @@
 
 # Cursor
 .cursor
+
+# Node
+node_modules
