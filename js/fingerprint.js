@@ -25,6 +25,7 @@ function formatFingerprintPayload(result) {
     visitorId: result.visitorId,
     version: result.version,
     confidence: result.confidence,
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
     components: result.components,
   };
   return JSON.stringify(payload, fingerprintJsonReplacer, 2);
