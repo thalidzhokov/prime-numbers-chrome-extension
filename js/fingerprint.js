@@ -20,15 +20,92 @@ function fingerprintJsonReplacer(_key, value) {
   return value;
 }
 
-function formatFingerprintPayload(result) {
-  const payload = {
-    visitorId: result.visitorId,
-    version: result.version,
-    confidence: result.confidence,
-    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
-    components: result.components,
-  };
-  return JSON.stringify(payload, fingerprintJsonReplacer, 2);
+function formatFieldCopyText(value) {
+  if (typeof value === 'string') {
+    return value;
+  }
+  return JSON.stringify(value, fingerprintJsonReplacer, 2);
+}
+
+function getFingerprintReportByteSize(result) {
+  const parts = [
+    result.visitorId,
+    String(result.version),
+    formatFieldCopyText(result.confidence),
+    typeof navigator !== 'undefined' ? navigator.userAgent : '',
+    formatFieldCopyText(result.components),
+  ];
+  return getFingerprintByteSize(parts.join('\n'));
+}
+
+function appendFingerprintField(parent, label, value) {
+  const row = document.createElement('div');
+  row.className = 'fingerprint-field';
+
+  const labelEl = document.createElement('span');
+  labelEl.className = 'fingerprint-field-label';
+  labelEl.textContent = label;
+  row.appendChild(labelEl);
+
+  const text = formatFieldCopyText(value);
+  const isMultiline = text.includes('\n');
+  const valueEl = document.createElement(isMultiline ? 'pre' : 'span');
+  valueEl.className = 'fingerprint-field-value copyable-value';
+  valueEl.textContent = text;
+  row.appendChild(valueEl);
+
+  parent.appendChild(row);
+}
+
+function appendFingerprintComponentsBlock(parent, result, sizeLabel) {
+  const componentsText = formatFieldCopyText(result.components);
+
+  const block = document.createElement('div');
+  block.className = 'fingerprint-payload-block';
+
+  const labelEl = document.createElement('span');
+  labelEl.className = 'fingerprint-field-label';
+  labelEl.textContent = 'components';
+  block.appendChild(labelEl);
+
+  const pre = document.createElement('pre');
+  pre.className = 'fingerprint-payload fingerprint-payload--collapsed copyable-value';
+  pre.textContent = componentsText;
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'fingerprint-payload-toggle';
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', `Развернуть, ${sizeLabel}`);
+
+  const toggleInner = document.createElement('span');
+  toggleInner.className = 'fingerprint-payload-toggle-inner';
+
+  const icon = document.createElement('span');
+  icon.className = 'fingerprint-payload-toggle-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = '⊕';
+
+  const size = document.createElement('span');
+  size.className = 'fingerprint-payload-toggle-size';
+  size.textContent = sizeLabel;
+
+  toggleInner.appendChild(icon);
+  toggleInner.appendChild(size);
+  toggle.appendChild(toggleInner);
+
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const expanded = pre.classList.toggle('fingerprint-payload--expanded');
+    pre.classList.toggle('fingerprint-payload--collapsed', !expanded);
+    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    toggle.setAttribute('aria-label', expanded ? `Свернуть, ${sizeLabel}` : `Развернуть, ${sizeLabel}`);
+    icon.textContent = expanded ? '⊖' : '⊕';
+  });
+
+  block.appendChild(pre);
+  block.appendChild(toggle);
+  parent.appendChild(block);
 }
 
 function isCanvasDataUrl(value) {
@@ -138,51 +215,23 @@ function formatFingerprintSizeLabel(byteSize) {
 }
 
 function renderFingerprintResult(root, result) {
-  const text = formatFingerprintPayload(result);
-  const sizeLabel = formatFingerprintSizeLabel(getFingerprintByteSize(text));
+  const sizeLabel = formatFingerprintSizeLabel(getFingerprintReportByteSize(result));
   root.innerHTML = '';
 
-  const block = document.createElement('div');
-  block.className = 'fingerprint-payload-block';
+  const fields = document.createElement('div');
+  fields.className = 'fingerprint-fields';
 
-  const pre = document.createElement('pre');
-  pre.className = 'fingerprint-payload fingerprint-payload--collapsed copyable-value';
-  pre.textContent = text;
+  appendFingerprintField(fields, 'visitorId', result.visitorId);
+  appendFingerprintField(fields, 'version', result.version);
+  appendFingerprintField(fields, 'confidence', result.confidence);
+  appendFingerprintField(
+    fields,
+    'userAgent',
+    typeof navigator !== 'undefined' ? navigator.userAgent : '',
+  );
 
-  const toggle = document.createElement('button');
-  toggle.type = 'button';
-  toggle.className = 'fingerprint-payload-toggle';
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', `Развернуть, ${sizeLabel}`);
-
-  const toggleInner = document.createElement('span');
-  toggleInner.className = 'fingerprint-payload-toggle-inner';
-
-  const icon = document.createElement('span');
-  icon.className = 'fingerprint-payload-toggle-icon';
-  icon.setAttribute('aria-hidden', 'true');
-  icon.textContent = '⊕';
-
-  const size = document.createElement('span');
-  size.className = 'fingerprint-payload-toggle-size';
-  size.textContent = sizeLabel;
-
-  toggleInner.appendChild(icon);
-  toggleInner.appendChild(size);
-  toggle.appendChild(toggleInner);
-
-  toggle.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const expanded = pre.classList.toggle('fingerprint-payload--expanded');
-    pre.classList.toggle('fingerprint-payload--collapsed', !expanded);
-    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    toggle.setAttribute('aria-label', expanded ? `Свернуть, ${sizeLabel}` : `Развернуть, ${sizeLabel}`);
-    icon.textContent = expanded ? '⊖' : '⊕';
-  });
-
-  block.appendChild(pre);
-  block.appendChild(toggle);
-  root.appendChild(block);
+  root.appendChild(fields);
+  appendFingerprintComponentsBlock(root, result, sizeLabel);
 
   renderFingerprintCanvasImages(root, result);
 }
