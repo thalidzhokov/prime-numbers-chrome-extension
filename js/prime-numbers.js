@@ -50,22 +50,22 @@ function renderPrimeNumbers() {
   setPrimeMessage('', false);
 
   if (!Number.isFinite(from) || !Number.isFinite(to)) {
-    setPrimeMessage('Введите корректные числа.', true);
+    setPrimeMessage('Enter valid numbers.', true);
     primeListElement.innerHTML = '';
     return;
   }
   if (from < 1 || to < 1) {
-    setPrimeMessage('Границы должны быть не меньше 1.', true);
+    setPrimeMessage('Bounds must be at least 1.', true);
     primeListElement.innerHTML = '';
     return;
   }
   if (from > to) {
-    setPrimeMessage('«From» не может быть больше «To».', true);
+    setPrimeMessage('From cannot be greater than To.', true);
     primeListElement.innerHTML = '';
     return;
   }
   if (to - from > PRIME_RANGE_MAX_SPAN) {
-    setPrimeMessage(`Слишком широкий диапазон (макс. ${PRIME_RANGE_MAX_SPAN}).`, true);
+    setPrimeMessage(`Range is too wide (max ${PRIME_RANGE_MAX_SPAN}).`, true);
     primeListElement.innerHTML = '';
     return;
   }

@@ -76,7 +76,7 @@ function appendFingerprintComponentsBlock(parent, result, sizeLabel) {
   toggle.type = 'button';
   toggle.className = 'fingerprint-payload-toggle';
   toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', `Развернуть, ${sizeLabel}`);
+  toggle.setAttribute('aria-label', `Expand, ${sizeLabel}`);
 
   const toggleInner = document.createElement('span');
   toggleInner.className = 'fingerprint-payload-toggle-inner';
@@ -99,7 +99,7 @@ function appendFingerprintComponentsBlock(parent, result, sizeLabel) {
     const expanded = pre.classList.toggle('fingerprint-payload--expanded');
     pre.classList.toggle('fingerprint-payload--collapsed', !expanded);
     toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    toggle.setAttribute('aria-label', expanded ? `Свернуть, ${sizeLabel}` : `Развернуть, ${sizeLabel}`);
+    toggle.setAttribute('aria-label', expanded ? `Collapse, ${sizeLabel}` : `Expand, ${sizeLabel}`);
     icon.textContent = expanded ? '⊖' : '⊕';
   });
 
@@ -184,7 +184,7 @@ function renderFingerprintLoading(root) {
   root.innerHTML = '';
   const el = document.createElement('p');
   el.className = 'fingerprint-loading';
-  el.textContent = 'Вычисление отпечатка…';
+  el.textContent = 'Computing fingerprint...';
   root.appendChild(el);
 }
 
@@ -203,15 +203,15 @@ function getFingerprintByteSize(text) {
 function formatFingerprintSizeLabel(byteSize) {
   const kb = byteSize / 1024;
   if (byteSize === 0) {
-    return '0 КБ';
+    return '0 KB';
   }
   if (kb < 1) {
-    return `${kb.toFixed(2)} КБ`;
+    return `${kb.toFixed(2)} KB`;
   }
   if (kb < 100) {
-    return `${kb.toFixed(1)} КБ`;
+    return `${kb.toFixed(1)} KB`;
   }
-  return `${Math.round(kb)} КБ`;
+  return `${Math.round(kb)} KB`;
 }
 
 function renderFingerprintResult(root, result) {
@@ -250,7 +250,7 @@ function renderFingerprint() {
       renderFingerprintResult(root, result);
     })
     .catch(() => {
-      renderFingerprintError(root, 'Не удалось получить отпечаток.');
+      renderFingerprintError(root, 'Failed to get fingerprint.');
     });
 }
 

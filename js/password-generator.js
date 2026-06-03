@@ -52,7 +52,7 @@ function renderPasswords() {
   setPasswordMessage('', false);
 
   if (!Number.isFinite(length) || length < 8) {
-    setPasswordMessage('Некорректная длина.', true);
+    setPasswordMessage('Invalid length.', true);
     container.innerHTML = '';
     return;
   }

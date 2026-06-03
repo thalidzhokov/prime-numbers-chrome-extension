@@ -18,17 +18,17 @@ if [[ -f "package.json" ]] && command -v npm >/dev/null 2>&1; then
 fi
 
 if ! command -v zip >/dev/null 2>&1; then
-  echo "Ошибка: команда 'zip' не найдена. Установите zip и повторите."
+  echo "Error: 'zip' not found. Install zip and try again."
   exit 1
 fi
 
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "Ошибка: команда 'python3' не найдена. Нужна для чтения версии из manifest.json."
+  echo "Error: 'python3' not found. Required to read version from manifest.json."
   exit 1
 fi
 
 if [[ ! -f "manifest.json" ]]; then
-  echo "Ошибка: manifest.json не найден в ${ROOT_DIR}."
+  echo "Error: manifest.json not found in ${ROOT_DIR}."
   exit 1
 fi
 
@@ -57,7 +57,7 @@ INCLUDE_PATHS=(
 
 for path in "${INCLUDE_PATHS[@]}"; do
   if [[ ! -e "${path}" ]]; then
-    echo "Ошибка: обязательный путь '${path}' не найден."
+    echo "Error: required path '${path}' not found."
     exit 1
   fi
 done
@@ -68,5 +68,5 @@ rm -f "${ARCHIVE_PATH}"
 zip -r -9 "${ARCHIVE_PATH}" "${INCLUDE_PATHS[@]}" \
   -x "*.DS_Store" "*/.DS_Store"
 
-echo "Готово: ${ARCHIVE_PATH}"
-echo "Проверьте архив: после распаковки в корне должен лежать manifest.json."
+echo "Done: ${ARCHIVE_PATH}"
+echo "Verify the archive: manifest.json must be at the root after unpacking."

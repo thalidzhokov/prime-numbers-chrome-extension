@@ -18,7 +18,7 @@ if command -v npm >/dev/null 2>&1; then
 fi
 
 if ! command -v docker >/dev/null 2>&1; then
-  echo "Ошибка: нужен npm или docker для сборки SCSS."
+  echo "Error: npm or docker is required to build SCSS."
   exit 1
 fi
 
