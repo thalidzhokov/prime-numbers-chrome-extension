@@ -530,6 +530,21 @@ header .configs label {
   word-break: break-all;
   white-space: pre-wrap;
 }
+#fingerprint-results .fingerprint-field-value.copyable-value:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 4px;
+  top: unset;
+  transform: none;
+  width: 16px;
+  height: 16px;
+  background-image: url("../icons/clipboard-copy.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  bottom: 4px;
+}
 #fingerprint-results pre.fingerprint-field-value {
   overflow-x: auto;
 }
@@ -561,7 +576,6 @@ header .configs label {
   overflow-x: auto;
   overflow-y: auto;
 }
-#fingerprint-results .fingerprint-field-value.copyable-value:hover::after,
 #fingerprint-results .fingerprint-payload:hover::after {
   content: "";
   display: block;

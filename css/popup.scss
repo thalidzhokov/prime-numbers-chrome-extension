@@ -516,8 +516,53 @@ $password-toggle-ids: '#password-uppercase', '#password-digits', '#password-spec
     color: $color-text-muted;
   }
 
+  .fingerprint-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .fingerprint-field {
+    border: 1px solid $overlay-10;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .fingerprint-field-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    color: $color-text-muted;
+    text-transform: uppercase;
+  }
+
+  .fingerprint-field-value {
+    display: block;
+    margin: 0;
+    font-family: monospace;
+    font-size: 11px;
+    line-height: 1.35;
+    word-break: break-all;
+    white-space: pre-wrap;
+
+    &.copyable-value:hover::after {
+      @include clipboard-copy-icon(4px, unset, none);
+      bottom: 4px;
+    }
+  }
+
+  pre.fingerprint-field-value {
+    overflow-x: auto;
+  }
+
   .fingerprint-payload-block {
     margin: 0;
+
+    > .fingerprint-field-label {
+      padding: 8px 8px 0;
+    }
   }
 
   .fingerprint-payload {
@@ -525,7 +570,9 @@ $password-toggle-ids: '#password-uppercase', '#password-digits', '#password-spec
     font-family: monospace;
     font-size: 11px;
     border: 1px solid $overlay-10;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
     padding: 10px;
     position: relative;
     box-sizing: border-box;
