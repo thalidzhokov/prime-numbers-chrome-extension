@@ -2,7 +2,7 @@
 
 Manifest V3 popup extension: primes in a custom range, a password generator, and a **Fingerprint** tab (selected `navigator` fields and FingerprintJS payload, computed locally). No background scripts, no network calls — everything stays on your device.
 
-**Version:** see `manifest.json` (currently `1.1.0`).
+**Version:** see `manifest.json` (currently `1.1.3`).
 
 ## Features
 
@@ -89,7 +89,7 @@ To be fair: in production people more often use **random jitter** on an interval
 
 ### Schedulers: cron, systemd timers, Kubernetes CronJob
 
-Teams may use e.g. `*/7` vs `*/5` so jobs do not all sit on the same phase of a "round" grid: rhythm alignment is tied to the **least common multiple** of periods, and breaking lockstep with neighbours is easier when periods are **not all divisors of one shared base** (in large orgs this is often **manual schedule hygiene**).
+Teams may use e.g. `*/7` vs `*/5` so jobs do not all sit on the same phase of a "round" grid: rhythm alignment is tied to the **least common multiple** of periods, and breaking lockstep with neighbors is easier when periods are **not all divisors of one shared base** (in large orgs this is often **manual schedule hygiene**).
 
 ### Agent polling: monitoring, metrics, health checks
 
